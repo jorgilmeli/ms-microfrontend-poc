@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import List, { AndesListItem } from 'FuryLibrary/Andes/List';
 import 'FuryLibrary/Andes/styles';
 
