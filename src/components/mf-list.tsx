@@ -3,32 +3,36 @@ import React from 'react';
 import List, { AndesListItem } from 'FuryLibrary/Andes/List';
 import 'FuryLibrary/Andes/styles';
 
-export const MfList = () => {
+const MfList = ({items, title}) => {
 
   return (
-    <>
-      <h2> Microfrontend List</h2>
+    <div  style={{
+        padding: '20px',
+        border: '1px solid #ccc',
+        margin: '10px 0'
+    }}>
+      <h2 style={{
+          padding: '10px 0'
+      }}> { title } </h2>
       <List
-        aria-label="Teléfonos"
-        id="telefonos"
+          style={{
+              maxWidth: '100%'
+          }}
+        aria-label="Systems"
+        id="systems"
         selectable={false}
       >
-        <AndesListItem
-          primary="Iphone 11"
-          secondary="256gb de memoria"
-          tertiary="$1100"
-        />
-        <AndesListItem
-          primary="Iphone 12 PRO MAX"
-          secondary="256gb de memoria"
-          tertiary="$1600"
-        />
-        <AndesListItem
-          primary="Samsung Galaxy S20"
-          tertiary="$1800"
-        />
+          {items?.map((item, index) => {
+              return (<AndesListItem
+                  primary={item.title}
+                  secondary={item.description}
+                  tertiary={item.status}
+                  key={index}
+              />)
+          })}
       </List>
-      <div>------------------------------------------------------------------</div>
-    </>
+    </div>
   );
 };
+
+export default MfList
